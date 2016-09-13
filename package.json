@@ -1,0 +1,25 @@
+{
+  "name": "monoture-testimonials",
+  "version": "0.0.1",
+  "description": "Monoture Testimonials",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monoture/monoture-testimonials.git"
+  },
+  "keywords": [
+    "monoture",
+    "testimonials"
+  ],
+  "author": "James Pegg <jamescpegg@gmail.com> (http://jamespegg.co.uk)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monoture/monoture-testimonials/issues"
+  },
+  "homepage": "https://github.com/monoture/monoture-testimonials#readme",
+  "dependencies": {
+    "camo": "^0.12.2",
+    "express": "^4.14.0"
+  }
+}

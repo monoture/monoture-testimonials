@@ -1,0 +1,64 @@
+<form method="post" ng-submit="save()" class="flex-xs-1 flex-xs flex-xs-column">
+  <!-- Navigation -->
+  <ng-include src="'/dashboard/app/partials/navbar.html'"></ng-include>
+
+  <div class="flex-xs-1 flex-xs flex-xs-column flex-sm-row">
+    <!-- Sidebar -->
+    <aside class="list-group list-group-flush list-group-inverse flex-sm-2 flex-lg-1 overflow-y scrollbar-inverse">
+
+      <div class="list-group-item">
+        <h4>Properties</h4>
+
+        <!-- Published -->
+        <div class="form-group">
+          <label>Image</label>
+          <img data-ng-src="{{testimonial.img}}" class="img-fluid img-rounded m-b-1" alt="">
+          <input type="file" class="form-control form-control-inverse" onchange="angular.element(this).scope().convertImg(this.files)">
+        </div>
+      </div>
+    </aside>
+
+    <!-- Editor -->
+    <div class="flex-xs-4 flex-xs flex-xs-column">
+
+      <nav class="navbar navbar-light navbar-full bg-faded flex-sm">
+
+        <!-- Name -->
+        <input name="name" placeholder="Name" maxlength="120" class="form-control-minimal flex-sm-1" ng-model="testimonial.name" required/>
+
+        <div class="btn-group pull-right">
+
+          <a href="#/testimonials" class="btn btn-secondary btn-sm">
+            <i class="fa fa-angle-left"></i> Back
+          </a>
+
+          <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-floppy-o"></i> Save
+          </button>
+
+        </div>
+      </nav>
+
+      <!-- Edit area -->
+      <div class="flex-xs-1 flex-xs">
+
+        <!-- Input -->
+        <div class="flex-xs-1 flex-xs">
+          <textarea placeholder="Start writing your testimonial here." class="flex-xs-1 textarea-flush p-a-1 scrollbar-teal" ng-model="testimonial.body" required></textarea>
+        </div>
+
+        <!-- Preview -->
+        <div id="preview" class="flex-xs-1 p-a-1 b-l-5 overflow-y scrollbar-teal bg-white hidden-md-down" ng-bind-html="testimonial.body | markdown"></div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="alert alert-static alert-danger" ng-show="errors">
+  <strong>Couldn't save testimonial : </strong>
+  <ul>
+    <li ng-repeat="error in errors.data.meta.errors">
+      {{error.msg}}
+    </li>
+  </ul>
+</div>
